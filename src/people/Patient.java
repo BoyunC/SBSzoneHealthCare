@@ -13,7 +13,7 @@ public class Patient extends Person {
 	private Date firstVisitDate;
 	private Date lastVistiDate;
 	private String description;
-	private ArrayList<Vital> vital;
+	private ArrayList<Vital> vitalList;
 	private ArrayList<Medicine> takingMedicineList;
 	// private ArrayList<Payment>;
 
@@ -39,7 +39,7 @@ public class Patient extends Person {
 		this.lastVistiDate = new Date();
 		this.description = description;
 		this.takingMedicineList = takingMedicineList;
-		vital = new ArrayList<Vital>();
+		vitalList = new ArrayList<Vital>();
 
 		patientList.add(this);
 		printResult();
@@ -56,7 +56,7 @@ public class Patient extends Person {
 		lastVistiDate = new Date();
 		this.description = description;
 		this.takingMedicineList = takingMedicineList;
-		vital = new ArrayList<Vital>();
+		vitalList = new ArrayList<Vital>();
 
 		patientList.add(this);
 		printResult();
@@ -64,7 +64,7 @@ public class Patient extends Person {
 
 	// Method
 
-	//
+	// 환자 출력
 	public void printPatient() {
 		System.out.println("성명 : " + this.getName());
 		System.out.println("나이 : " + this.getAge());
@@ -73,6 +73,18 @@ public class Patient extends Person {
 		System.out.println("첫 내원일 : " + this.getFirstVisitDate());
 		System.out.println("마지막 내원일 : " + this.getLastVistiDate());
 		System.out.println("특이사항 : " + this.getDescription());
+
+		System.out.print("복용중인 약 : ");
+		for (Medicine medicine : takingMedicineList) {
+			System.out.println(medicine.getName() + "(" + medicine.getId() + ")  ");
+		}
+
+		// 가장 최근 vital 출력
+		System.out.print("체온 : " + vitalList.get(vitalList.size() - 1).getTemperature());
+		System.out.print("체중 : " + vitalList.get(vitalList.size() - 1).getWeight());
+		System.out.print("신장 : " + vitalList.get(vitalList.size() - 1).getHeight());
+		System.out.print("혈압 : " + vitalList.get(vitalList.size() - 1).getBloodPressure());
+		System.out.print("혈당 : " + vitalList.get(vitalList.size() - 1).getBloodSuger());
 
 		// System.out.println("환자 성명 : " + patient()); 복용약
 	}
@@ -143,11 +155,11 @@ public class Patient extends Person {
 	}
 
 	public ArrayList<Vital> getVital() {
-		return vital;
+		return vitalList;
 	}
 
-	public void setVital(ArrayList<Vital> vital) {
-		this.vital = vital;
+	public void setVital(ArrayList<Vital> vitalList) {
+		this.vitalList = vitalList;
 	}
 
 	public static ArrayList<Patient> getPatientList() {

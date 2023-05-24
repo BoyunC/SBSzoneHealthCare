@@ -7,8 +7,7 @@ import scanner.DataInput;
 
 public class DoctorFunction {
 
-	
-	// 의사 등록 기능 
+	// 의사 등록 기능
 	public static void registrateDoctor() {
 		System.out.println("========의사 등록========");
 		System.out.print("이름 : ");
@@ -22,10 +21,10 @@ public class DoctorFunction {
 
 		System.out.print("근무지 : ");
 		String office = DataInput.sc.nextLine();
-		
+
 		System.out.print("전공 : ");
 		String major = DataInput.sc.nextLine();
-		
+
 		System.out.print("의사 면허 번호 : ");
 		String licenseNum = DataInput.sc.nextLine();
 
@@ -36,9 +35,8 @@ public class DoctorFunction {
 		}
 
 		System.out.println("[system] 의사 등록이 완료되었습니다.");
-		System.out.println("[system] 아이디 : " + Doctor.doctorList.get(Doctor.doctorList.size()-1).getId());
+		System.out.println("[system] 아이디 : " + Doctor.doctorList.get(Doctor.doctorList.size() - 1).getId());
 	}
-
 
 	// 의사 검색 기능 : 이름으로
 	// 단순하게 아이디로 의사 가져오는 메소드는 Doctor -> getDoctor()
