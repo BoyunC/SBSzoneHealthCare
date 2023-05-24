@@ -1,5 +1,10 @@
 package people;
 
-public class Doctor {
+public class Doctor extends Person{
+	
+	private String office;
+	private String major;
+	private String licenseNum;
+	
 
 }
