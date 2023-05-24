@@ -1,8 +1,10 @@
 package calendar;
 
+import appointment.Appointment;
+
 public class Day {
 	private boolean isHoliday;
-//	static Appointment[] appointments;
+	static Appointment[] appointments;
 	
 	
 	public Day() {}
