@@ -1,5 +1,5 @@
 package people;
 
-public class Nurse {
+public class Nurse extends Person {
 
 }
