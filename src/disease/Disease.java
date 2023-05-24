@@ -1,10 +1,14 @@
 package disease;
 
+import java.util.ArrayList;
+
 public class Disease {
 	private String id;
 	private String name;
 	private String insuranceContent;
 	private String classification;
+	
+	public static ArrayList<Disease> diseaseList = new ArrayList<>();
 	
 	// Constructor
 	public Disease() { }
@@ -14,10 +18,10 @@ public class Disease {
 		this.id = id;
 		this.name = name;
 		this.classification = classification;
+		
+		diseaseList.add(this);
 	}
 
-	
-	
 	// Method
 	
 	

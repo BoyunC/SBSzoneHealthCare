@@ -2,6 +2,8 @@ package medicine;
 
 import java.util.ArrayList;
 
+import disease.Disease;
+
 public class Medicine {
 
 	private String id;
@@ -9,6 +11,8 @@ public class Medicine {
 	private String efficacy;
 	private String insuranceContent;
 	private String classification;
+	
+	public static ArrayList<Medicine> medicineList = new ArrayList<>();
 
 	// Constructor
 	public Medicine() {
@@ -20,6 +24,8 @@ public class Medicine {
 		this.name = name;
 		this.efficacy = efficacy;
 		this.classification = classification;
+		
+		medicineList.add(this);
 	}
 
 	// Method
