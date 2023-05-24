@@ -43,6 +43,11 @@ public class Day {
 		System.out.println("예약 취소가 완료되었습니다.");
 	}
 	
+	public void updateAppointment() {
+		//지금 구조는 같은 날짜 안에서만 수정이 가능함.
+		//근데 날짜를 바꿔줘야 하니까 상위에서 환자 정보 -> 예약내역 조회 -> 수정할 예약 선택 ->
+		//기존 예약 / 변경할 예약 선택해서 기존 삭제 -> 새로 예약 등록?
+	}
 	public void getAppointments() { 
 		int i = 0;
 		System.out.println(date + "일 예약 현황 : ");
@@ -50,8 +55,8 @@ public class Day {
 		for(int j = 0 ; j < time.length / 2 ; j++) {
 			for(int k = 0 ; k < 2 ; k++) { 
 				String txt = "[" + (i+1) + "]" + time[i] + ": ";
-				if(appointments[i++].getPatient() != null) {
-					txt += appointments[i].getPatient().getName(); 
+				if(appointments[i].getPatient() != null) {
+					txt += appointments[i++].getPatient().getName(); 
 				} else {
 					txt += "\t";
 				}
@@ -85,7 +90,8 @@ public class Day {
 	}
 	
 	public Appointment searchAppointment(Patient p) {
-		//만약에 월별 리스트를 만들거면 
+		//만약에 월별 리스트를 안만들거면 요일 입력받아서 시간 보여주고 선택할 수 있게?
+		//아니면 요일 -> 환자 이름 검색 -> 해당 내역 찾아서 리턴 -> 수정/삭제
 		ArrayList<Appointment> searchAppointmentList = new ArrayList<Appointment>();
 		int cnt = 1;
 		

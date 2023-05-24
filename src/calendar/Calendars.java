@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import scanner.DataInput;
+
 public class Calendars {
 	static List<Day> days;
 	
@@ -87,7 +89,15 @@ public class Calendars {
 			System.out.println();
 		}
 	}
- 
+	
+	static public void setHoliday() {
+		System.out.print("일정 등록 일 입력 : ");
+		int date = Integer.parseInt(DataInput.sc.nextLine());
+		
+		days.get(date).setHoliday(true);
+		
+	}
+	
 	static public List<Day> getDays() {
 		return days;
 	}
