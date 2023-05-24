@@ -45,7 +45,6 @@ public class Doctor extends Person {
 		return null;
 	}
 
-	
 	// Getter & Setter
 	public String getOffice() {
 		return office;

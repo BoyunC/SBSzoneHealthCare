@@ -15,11 +15,15 @@ public class Nurse extends Person {
 	public Nurse(String name, int age, String code, String licenseNum) {
 		super(name, age, code);
 		this.licenseNum = licenseNum;
+
+		nurseList.add(this);
 	}
 
 	public Nurse(String name, int age, String code, String pw, String licenseNum) {
 		super(name, age, code, pw);
 		this.licenseNum = licenseNum;
+
+		nurseList.add(this);
 	}
 
 	// Method

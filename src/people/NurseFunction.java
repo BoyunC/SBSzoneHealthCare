@@ -27,7 +27,7 @@ public class NurseFunction {
 		}
 
 		System.out.println("[system] 간호사 등록이 완료되었습니다.");
-		System.out.println("[system] 아이디 : " + Nurse.nurseList.get(Nurse.nurseList.size()-1).getId());
+		System.out.println("[system] 아이디 : " + Nurse.nurseList.get(Nurse.nurseList.size() - 1).getId());
 	}
 
 	// 간호사 검색 기능 : 이름으로
