@@ -1,41 +1,39 @@
 package appointment;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import people.Doctor;
 import people.Patient;
 
 public class Appointment {
-	private Date date;
-	private int time;
+	private	Calendar date;
+	private String time;
 	private String symtom;
 	private Doctor doctor;
 	private Patient patient;
 	
 	public Appointment() {}
 
-	public Appointment(Date date, int time, String symtom, Doctor doctor, Patient patient) {
+	public Appointment(Calendar date, String time) {
 		super();
 		this.date = date;
 		this.time = time;
-		this.symtom = symtom;
-		this.doctor = doctor;
-		this.patient = patient;
 	}
 
-	public Date getDate() {
+	public Calendar getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(Calendar date) {
 		this.date = date;
 	}
 
-	public int getTime() {
+	public String getTime() {
 		return time;
 	}
 
-	public void setTime(int time) {
+	public void setTime(String time) {
 		this.time = time;
 	}
 
