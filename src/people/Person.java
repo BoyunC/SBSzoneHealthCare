@@ -27,29 +27,29 @@ public class Person {
 		this.pw = "0000";
 	}
 
-	// C : 이름, 나이, 코드 
+	// C : 이름, 나이, 코드
 	public Person(String name, int age, String code) {
 		super();
-		
+
 		setIDnCode(code);
 		this.name = name;
 		this.age = age;
 		this.pw = "0000";
 	}
 
-	// C : 이름, 코드, 비밀번호 
+	// C : 이름, 코드, 비밀번호
 	public Person(String name, String code, String pw) {
 		super();
-		
+
 		setIDnCode(code);
 		this.pw = pw;
 		this.name = name;
 	}
-	
-	// C : 이름, 나이, 코드, 비밀번호 
+
+	// C : 이름, 나이, 코드, 비밀번호
 	public Person(String name, int age, String code, String pw) {
 		super();
-		
+
 		setIDnCode(code);
 		this.pw = pw;
 		this.age = age;
