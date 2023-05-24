@@ -32,7 +32,7 @@ public class Patient extends Person{
 		super(name, code);
 		this.regiNum = regiNum;
 	
-		// 나이 설정 안됨 => 나이 계산기 
+		// 나이 설정 제대로 안됨 => 나이 계산기 
 		this.setAge(1900 + date.getYear() - (Integer.parseInt("19" + regiNum.charAt(0)+regiNum.charAt(1))));
 		
 		patientList.add(this);
