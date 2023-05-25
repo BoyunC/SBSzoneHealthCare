@@ -16,6 +16,7 @@ public class DiagnosisFunction {
 		
 		System.out.println("[system] 환자 진단이 완료되었습니다. ");
 		System.out.println("[system] 이전 화면으로 돌아갑니다. ");
+
 	}
 
 }
