@@ -72,6 +72,6 @@ public class Prescription {
 		this.havingMedicineList = havingMedicineList;
 	}
 	
-	public void set
+	//public void set
 
 }

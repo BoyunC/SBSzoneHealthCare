@@ -16,10 +16,10 @@ public class PrescriptionFunction {
 			String nameMedicine = DataInput.sc.nextLine();
 			if (nameMedicine.equals("Q") || nameMedicine.equals("q"))
 				break;
-			prescription.havingMedicineList.add(MedicineFunction.searchMedicine(nameMedicine));
+			//prescription.havingMedicineList.add(MedicineFunction.searchMedicine(nameMedicine));
 		}
 
-		date = new Date();
+		//date = new Date();
 	}
 
 }
