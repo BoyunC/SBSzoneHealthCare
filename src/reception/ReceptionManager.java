@@ -51,16 +51,33 @@ public class ReceptionManager {
 		}
 		
 		// queue 
+		// 뺀걸 payment 리스트에 넣으려면 어떻게 해야 할까?
 		
 	}
 	
 	public void printPaper() {
 		System.out.print("환자 성명: ");
 		String name = DataInput.sc.nextLine();
-		Patient.getPatient(name);
-		PatientFunction.searchPatient(name);
+		Patient patient = PatientFunction.searchPatient(name);
+				
+		System.out.println(patient.getName() + "(" + patient.getRegiNum() + ")" + " 환자 서류");
+		System.out.println("1.진단서\n2.처방전\n3.보험서류");
+		System.out.print("출력 선택: ");
+		String paper = DataInput.sc.nextLine();
 		
-		
+		switch (paper) {
+		case "1":
+			// 해당 환자의 진단내역 리스트 불러오고 그중 하나 선택해서 출력
+			
+			break;
+		case "2":
+
+			break;
+		case "3":
+
+			break;
+
+		}
 		
 		
 	}

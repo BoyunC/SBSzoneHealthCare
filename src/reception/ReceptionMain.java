@@ -21,7 +21,7 @@ public class ReceptionMain {
 				rm.printPaper();
 				break;
 			} 
-			break;
+			//break;
 		}
 
 	}

@@ -1,5 +1,5 @@
 package paper;
 
-public class InsurancePaper {
+public class InsurancePaper extends Paper {
 
 }
