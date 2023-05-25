@@ -22,7 +22,7 @@ public class Disease {
 		diseaseList.add(this);
 	}
 
-	// Method
+	// Method 
 	
 	
 	
