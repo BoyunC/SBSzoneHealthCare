@@ -12,14 +12,14 @@ public class PrescriptionFunction {
 		
 		// 병 검색 메소드
 		while (true) {
-			System.out.print("약명 입력 : ");
+			System.out.print("[system] 처방약 입력 : ");
 			String nameMedicine = DataInput.sc.nextLine();
 			if (nameMedicine.equals("Q") || nameMedicine.equals("q"))
 				break;
-			//prescription.havingMedicineList.add(MedicineFunction.searchMedicine(nameMedicine));
+			prescription.addHavingMedicineList(MedicineFunction.searchMedicine(nameMedicine));
 		}
 
-		//date = new Date();
+		prescription.setDate(new Date());
 	}
 
 }

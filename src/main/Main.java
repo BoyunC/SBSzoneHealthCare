@@ -11,7 +11,7 @@ import scanner.DataInput;
 public class Main {
 
 	public static void main(String[] args) {
-		
+
 		new FakeData();
 		Scanner sc = new Scanner(System.in);
 
@@ -33,12 +33,13 @@ public class Main {
 				if (flag == -1)
 					continue;
 			}
-
+			System.out.println("here");
 			// 메뉴 출력
 			MainFunction.printMenu(flag);
 
 			String menu = null;
-			detailMenuLoop: while (true) {
+			detailMenuLoop: 
+			while (true) {
 				// 상세 메뉴 선택
 				if (menu == null) {
 					System.out.print("[system] 메뉴 선택(종료 Q) : ");
@@ -80,14 +81,13 @@ public class Main {
 				case "q":
 					System.out.println("[system] 프로그램이 종료됩니다. ");
 					// 전체 프로그램 종료할지 확인
-					break detailMenuLoop;
+					return;
 
 				default:
 					System.out.println("[system] 해당 메뉴가 존재하지 않습니다.");
 					break;
 				}
 			}
-
 		}
 	}
 

@@ -10,7 +10,7 @@ public class ExamFunction {
 	
 
 	public static void examPatient(Exam exam) {
-		System.out.println("--------------진단------------");
+		System.out.println("--------------진료------------");
 		System.out.print("[system] 자세한 증상 : ");
 		exam.setDetailSymptom(DataInput.sc.nextLine());
 		
@@ -26,13 +26,16 @@ public class ExamFunction {
 		}
 
 		// 의사 소견 : 선택사항 
-		System.out.print("[system] 의사 소견을 입력하시겠습니까? [y/n]");
+		System.out.print("[system] 의사 소견을 입력하시겠습니까? [y/n] : ");
 		
-		if (DataInput.sc.nextLine().equals("Y") || DataInput.sc.nextLine().equals("y")) {
+		String hasOpinion = DataInput.sc.nextLine();
+		
+		if (hasOpinion.equals("Y") || hasOpinion.equals("y")) {
 			System.out.print("[system] 의사 소견 : ");
 			exam.setOpinion(DataInput.sc.nextLine());
 		}
 
 		exam.setDate(new Date());
+		
 	}
 }

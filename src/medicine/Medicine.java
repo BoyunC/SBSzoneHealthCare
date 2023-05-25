@@ -11,7 +11,7 @@ public class Medicine {
 	private String efficacy;
 	private String insuranceContent;
 	private String classification;
-	
+
 	public static ArrayList<Medicine> medicineList = new ArrayList<>();
 
 	// Constructor
@@ -24,11 +24,21 @@ public class Medicine {
 		this.name = name;
 		this.efficacy = efficacy;
 		this.classification = classification;
-		
+
 		medicineList.add(this);
 	}
 
 	// Method
+	public void printMedicine(Medicine medicine) {
+
+		System.out.println("약명 : " + medicine.getName());
+		System.out.println("아이디 : " + medicine.getId());
+		System.out.println("효능 : " + medicine.getEfficacy());
+		System.out.println("분류 : " + medicine.getClassification());
+		if (medicine.getInsuranceContent() != null) {
+			System.out.println("보험 내용 : " + medicine.getInsuranceContent());
+		}
+	}
 
 	// Getter & Setter
 	public String getId() {
