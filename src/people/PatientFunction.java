@@ -48,7 +48,6 @@ public class PatientFunction {
 			new Patient(name, "환자", pw, regiNum, description, takingMedicineList);
 		}
 
-		System.out.println("system : 환자 등록이 완료되었습니다.");
 	}
 
 	// 환자 검색 기능

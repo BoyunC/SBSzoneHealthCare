@@ -33,7 +33,7 @@ public class Exam {
 	// Method
 	public void printExam() {
 		
-		System.out.println("자세한 증상 " + detailSymptom);
+		System.out.println("자세한 증상 : " + detailSymptom);
 		
 		System.out.print("진단 명 : ");
 
