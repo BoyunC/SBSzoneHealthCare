@@ -19,8 +19,7 @@ public class Patient extends Person {
 	public ArrayList<Vital> vitalList;
 	public ArrayList<Medicine> takingMedicineList;
 	public ArrayList<Appointment> appointmentList;
-	public ArrayList<Payment> paymentList;
-
+	public ArrayList<Payment> paymentLis
 
 	public static ArrayList<Patient> patientList = new ArrayList<Patient>();
 
@@ -92,6 +91,14 @@ public class Patient extends Person {
 		System.out.print("혈당 : " + vitalList.get(vitalList.size() - 1).getBloodSuger());
 
 		// System.out.println("환자 성명 : " + patient()); 복용약
+	}
+
+	public ArrayList<Appointment> getAppointmentList() {
+		return appointmentList;
+	}
+
+	public void setAppointmentList(ArrayList<Appointment> appointmentList) {
+		this.appointmentList = appointmentList;
 	}
 
 	// 회원 검색

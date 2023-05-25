@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import appointment.Appointment;
+import people.DoctorFunction;
 import people.Patient;
 import scanner.DataInput;
 
@@ -11,8 +12,13 @@ public class Day {
 	private int month;
 	private int date;
 	private int weekday;
+	
 	private boolean isHoliday;
+	private String reason;
+	
 	Appointment[] appointments;
+
+
 	static String[] time = new String[] {
 		"09:00", "09:30", "10:00", "10:30", 
 		"11:00", "11:30", "13:00", "13:30", 
@@ -43,6 +49,14 @@ public class Day {
 		System.out.println("예약 취소가 완료되었습니다.");
 	}
 	
+	public void updateAppointment() {
+		//지금 구조는 같은 날짜 안에서만 수정이 가능함.
+		//근데 날짜를 바꿔줘야 하니까 상위에서 환자 정보 -> 예약내역 조회 -> 수정할 예약 선택 ->
+		//기존 예약 / 변경할 예약 선택해서 기존 삭제 -> 새로 예약 등록?
+		String name = DataInput.sc.nextLine();
+		
+	}
+	
 	public void getAppointments() { 
 		int i = 0;
 		System.out.println(date + "일 예약 현황 : ");
@@ -50,8 +64,8 @@ public class Day {
 		for(int j = 0 ; j < time.length / 2 ; j++) {
 			for(int k = 0 ; k < 2 ; k++) { 
 				String txt = "[" + (i+1) + "]" + time[i] + ": ";
-				if(appointments[i++].getPatient() != null) {
-					txt += appointments[i].getPatient().getName(); 
+				if(appointments[i].getPatient().getName() != null) {
+					txt += appointments[i++].getPatient().getName(); 
 				} else {
 					txt += "\t";
 				}
@@ -76,16 +90,38 @@ public class Day {
 		
 		System.out.print("예약 시간 입력 : ");
 		int selectTime = Integer.parseInt(DataInput.sc.nextLine()); 
-		//의사정보, 환자 정보, 증상
 		
+		//환자 정보 입력
+		//만약에 환자가 존재하지 않으면 환자 등록으로? 
+		System.out.println("환자 이름 입력 : ");
+		String name = DataInput.sc.nextLine();
+		appointments[selectTime - 1].setPatient(Patient.getPatient(name));
+		
+		//증상 입력
 		System.out.print("증상 입력 : ");
 		String symtom = DataInput.sc.nextLine();
 		appointments[selectTime - 1].setSymtom(symtom);
-		System.out.println("예약 완료 : " + appointments[selectTime -1].getSymtom());
-	}
+		
+		//의사 정보 입력
+		System.out.println("담당 의사 선택 : ");
+		name = DataInput.sc.nextLine();
+		appointments[selectTime - 1].setDoctor(DoctorFunction.searchDoctor(name));
+
+
+		//환자 예약 내역에 예약 추가
+		appointments[selectTime-1].getPatient().appointmentList.add(appointments[selectTime - 1]);
+		
+		//예약 내역 출력
+		System.out.println("예약 완료 : ");
+		System.out.println(month + "월 " + date + "일 " + appointments[selectTime - 1].getTime());
+		System.out.println("환자 : " + appointments[selectTime-1].getPatient().getName()
+				+ " " + appointments[selectTime-1].getPatient().getRegiNum());
+				
+		}
 	
 	public Appointment searchAppointment(Patient p) {
-		//만약에 월별 리스트를 만들거면 
+		//만약에 월별 리스트를 안만들거면 요일 입력받아서 시간 보여주고 선택할 수 있게?
+		//아니면 요일 -> 환자 이름 검색 -> 해당 내역 찾아서 리턴 -> 수정/삭제
 		ArrayList<Appointment> searchAppointmentList = new ArrayList<Appointment>();
 		int cnt = 1;
 		
@@ -110,5 +146,13 @@ public class Day {
 
 	public void setHoliday(boolean isHoliday) {
 		this.isHoliday = isHoliday;
+	}
+	
+	public String getReason() {
+		return reason;
+	}
+
+	public void setReason(String reason) {
+		this.reason = reason;
 	}
 }

@@ -1,5 +1,7 @@
 package paper;
 
-public class PrescriptionPaper {
+public class PrescriptionPaper extends Paper {
 	//private Prescription prescription;
+	
+	
 }

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import scanner.DataInput;
+
 public class Calendars {
 	static List<Day> days;
 	
@@ -89,7 +91,40 @@ public class Calendars {
 			System.out.println();
 		}
 	}
- 
+	
+	static public void setHoliday() {
+		System.out.print("일정 등록 일 입력 : ");
+		int date = Integer.parseInt(DataInput.sc.nextLine()) - 1;
+		System.out.println("일정 등록 사유 입력 : ");
+		days.get(date).setReason(DataInput.sc.nextLine());
+		days.get(date).setHoliday(true);
+		
+		System.out.println("일정이 등록되었습니다.");
+		
+	}
+	static public void updateHoliday() {
+		System.out.println("일정 수정 일 입력 : ");
+		int date = Integer.parseInt(DataInput.sc.nextLine()) - 1;
+		
+	}
+	
+	static public void removeHoliday() {
+		System.out.println("일정 삭제 일 입력 : ");
+		int date = Integer.parseInt(DataInput.sc.nextLine()) - 1;
+		if(!days.get(date).isHoliday()) {
+			System.out.println("삭제할 일정이 없습니다.");
+			removeHoliday();
+		} else {
+			days.get(date).setHoliday(false);
+			days.get(date).setReason("");
+			System.out.println("일정이 삭제되었습니다.");
+		}
+	}
+	
+	public void updateAppointment() {
+		System.out.println("");
+	}
+	
 	static public List<Day> getDays() {
 		return days;
 	}
