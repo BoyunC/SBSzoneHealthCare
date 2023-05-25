@@ -1,12 +1,8 @@
 package main;
-
-import calendar.CalendarManager;
-import calendar.Calendars;
-=======
-
 import appointment.Appointment;
 import diagnosis.Diagnosis;
->>>>>>> refs/remotes/origin/main
+import calendar.CalendarManager;
+import calendar.Calendars;
 import diagnosis.DiagnosisFunction;
 import disease.Disease;
 import disease.DiseaseFunction;
