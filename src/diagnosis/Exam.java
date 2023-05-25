@@ -33,13 +33,14 @@ public class Exam {
 	// Method
 	public void printExam() {
 		
-		System.out.println("자세한 증상 " + detailSymptom);
+		System.out.println("자세한 증상 : " + detailSymptom);
 		
 		System.out.print("진단 명 : ");
 
 		for (Disease disease : havingDiseaseList) {
 			System.out.print(disease.getName() + "(" + disease.getId() + ") ");
 		}
+		System.out.println();
 		
 		if(opinion != null) {
 			System.out.println("의사 소견 : " + opinion);

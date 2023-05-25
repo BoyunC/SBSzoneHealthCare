@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import appointment.Appointment;
+import people.Doctor;
 import people.DoctorFunction;
 import people.Patient;
+import people.PatientFunction;
 import scanner.DataInput;
 
 public class Day {
@@ -95,7 +97,12 @@ public class Day {
 		//만약에 환자가 존재하지 않으면 환자 등록으로? 
 		System.out.print("환자 이름 입력 : ");
 		String name = DataInput.sc.nextLine();
-		appointments[selectTime - 1].setPatient(Patient.getPatient(name));
+		Patient tempPatient = PatientFunction.searchPatient(name);
+		if(tempPatient == null) {
+			PatientFunction.registratePatient();
+			tempPatient = PatientFunction.searchPatient(name);
+		}
+		appointments[selectTime - 1].setPatient(tempPatient);
 		
 		//증상 입력
 		System.out.print("증상 입력 : ");
@@ -105,12 +112,16 @@ public class Day {
 		//의사 정보 입력
 		System.out.println("담당 의사 선택 : ");
 		name = DataInput.sc.nextLine();
-		appointments[selectTime - 1].setDoctor(DoctorFunction.searchDoctor(name));
-
-
+		Doctor tempDoctor = DoctorFunction.searchDoctor(name);
+		if(tempDoctor == null) {
+			DoctorFunction.registrateDoctor();
+			tempDoctor = DoctorFunction.searchDoctor(name);
+		}
+		appointments[selectTime - 1].setDoctor(tempDoctor);
+		System.out.println("ddd");
 		//환자 예약 내역에 예약 추가
-		appointments[selectTime-1].getPatient().appointmentList.add(appointments[selectTime - 1]);
-		
+	
+		tempPatient.getAppointmentList().add(appointments[selectTime - 1]);
 		//예약 내역 출력
 		System.out.println("예약 완료 : ");
 		System.out.println(month + "월 " + date + "일 " + appointments[selectTime - 1].getTime());

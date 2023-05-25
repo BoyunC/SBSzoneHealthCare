@@ -10,14 +10,10 @@ import people.PatientFunction;
 import scanner.DataInput;
 
 public class Calendars {
-	public static List<Day> days;
+	public static List<Day> days = new ArrayList<Day>();
 	private int n;
 	private int[][] monthArr;
-	public Calendars() {
-		days = new ArrayList<Day>();
-		
-		// 여기서 반복문 이용해서 12
-	}
+	public Calendars() {}
 	
 	public void setMonth(int month) {
 		
@@ -118,7 +114,7 @@ public class Calendars {
 		int date = Integer.parseInt(DataInput.sc.nextLine()) - 1;
 		
 	}
-	
+
 	static public void removeHoliday() {
 		System.out.println("일정 삭제 일 입력 : ");
 		int date = Integer.parseInt(DataInput.sc.nextLine()) - 1;
@@ -175,6 +171,9 @@ public class Calendars {
 				.setDoctor(list.get(selectAppoint - 1).getDoctor());
 		
 //		list.get(selectAppoint - 1).
+	}
+	static public Day getDay(int date) {
+		return days.get(date - 1);
 	}
 	
 	static public List<Day> getDays() {

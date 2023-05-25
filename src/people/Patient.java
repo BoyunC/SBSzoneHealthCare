@@ -45,6 +45,9 @@ public class Patient extends Person {
 		this.description = description;
 		this.takingMedicineList = takingMedicineList;
 		vitalList = new ArrayList<Vital>();
+		appointmentList = new ArrayList<Appointment>();
+		paymentList = new ArrayList<Payment>();
+		diagnosisList = new ArrayList<Diagnosis>();
 
 		patientList.add(this);
 		printResult();
@@ -62,6 +65,9 @@ public class Patient extends Person {
 		this.description = description;
 		this.takingMedicineList = takingMedicineList;
 		vitalList = new ArrayList<Vital>();
+		appointmentList = new ArrayList<Appointment>();
+		paymentList = new ArrayList<Payment>();
+		diagnosisList = new ArrayList<Diagnosis>();
 
 		patientList.add(this);
 		printResult();
@@ -80,7 +86,9 @@ public class Patient extends Person {
 		System.out.println("특이사항 : " + this.getDescription());
 
 		System.out.print("복용중인 약 : ");
-		if (takingMedicineList.isEmpty()) {
+
+		if (takingMedicineList==null) {
+
 			System.out.println("없음");
 		} else {
 			for (Medicine medicine : takingMedicineList) {
@@ -129,7 +137,6 @@ public class Patient extends Person {
 
 	//
 	private void printResult() {
-		System.out.println("회원 등록이 완료되었습니다.");
 	}
 
 	//

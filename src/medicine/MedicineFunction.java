@@ -5,13 +5,13 @@ import java.util.ArrayList;
 import scanner.DataInput;
 
 public class MedicineFunction {
-	
-public static Medicine searchMedicine(String name) {
-		
+
+	public static Medicine searchMedicine(String name) {
+
 		ArrayList<Medicine> searchMedicineList = new ArrayList<Medicine>();
 		int cnt = 1;
 
-		// 테스트 필요 
+		// 테스트 필요
 		for (int i = 0; i < Medicine.medicineList.size(); i++) {
 			if (Medicine.medicineList.get(i).getName().contains(name)) {
 				searchMedicineList.add(Medicine.medicineList.get(i));

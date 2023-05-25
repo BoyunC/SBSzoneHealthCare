@@ -23,11 +23,11 @@ public class DiseaseFunction {
 
 		// 병이 존재하지 않는 경우
 		if (searchDiseaseList.isEmpty()) {
-			System.out.println("해당하는 병명이 존재하지 않습니다.");
+			System.out.println("[system] 해당하는 병명이 존재하지 않습니다.");
 			return null;
 		}
 
-		System.out.print("질병 선택 : ");
+		System.out.print("[system] 질병 선택 : ");
 		int pickPatient = Integer.parseInt(DataInput.sc.nextLine()) - 1;
 
 		return searchDiseaseList.get(pickPatient);
