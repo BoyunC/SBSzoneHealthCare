@@ -1,5 +1,7 @@
 package main;
 
+import calendar.CalendarManager;
+import calendar.Calendars;
 import diagnosis.DiagnosisFunction;
 import people.Doctor;
 import people.Nurse;
@@ -104,17 +106,20 @@ public class MainFunction {
 	public static void menuAppointment(String menu) {
 		switch (menu) {
 		case "1":
-			
-
+			System.out.println("========진료 예약========");
+			CalendarManager.start();
 			break;
 		case "2":
-
+			System.out.println("========예약 수정========");
+			
 			break;
 		case "3":
+			System.out.println("========예약 취소========");
 
 			break;
 		case "4":
-
+			System.out.println("======당일 예약 현황======");
+			
 			break;
 
 		default:
@@ -139,7 +144,7 @@ public class MainFunction {
 			break;
 		case "3":
 			System.out.println("========환자 진단========");
-			DiagnosisFunction.
+//			DiagnosisFunction.
 			break;
 		case "4":
 
