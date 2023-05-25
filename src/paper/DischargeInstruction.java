@@ -1,5 +1,6 @@
 package paper;
 
+import diagnosis.Diagnosis;
 import people.Doctor;
 import people.Patient;
 
@@ -7,7 +8,7 @@ public class DischargeInstruction extends Paper {
 	private Patient patient;
 	private Doctor doctor;
 	
-	public void printDischargeInstruction() {
+	public void printDischargeInstruction(Diagnosis diagnosis) {
 		System.out.println("===================================");
 		System.out.println("			       진단서	  		       ");
 		System.out.println();
