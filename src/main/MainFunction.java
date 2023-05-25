@@ -1,9 +1,8 @@
 package main;
-
-
+import appointment.Appointment;
+import diagnosis.Diagnosis;
 import calendar.CalendarManager;
 import calendar.Calendars;
-
 import diagnosis.DiagnosisFunction;
 import disease.Disease;
 import disease.DiseaseFunction;
@@ -162,12 +161,10 @@ public class MainFunction {
 		case "3":
 			System.out.println("========환자 진단========");
 
-
 			// DiagnosisFunction.
 			// 오늘 예약 리스트 받아와서 해당 예약 리스트 선택하는 기능 구현 
 			// 가짜 데이터
 			DiagnosisFunction.diagnosisPatient(FakeData.appoint);
-
 			break;
 		case "4":
 			System.out.println("========환자 진단 내역========");
