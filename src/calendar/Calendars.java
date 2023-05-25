@@ -8,7 +8,7 @@ import appointment.Appointment;
 import scanner.DataInput;
 
 public class Calendars {
-	static List<Day> days;
+	public static List<Day> days;
 	
 	public Calendars() {
 		days = new ArrayList<Day>();
