@@ -11,6 +11,8 @@ public class Calendars {
 	
 	public Calendars() {
 		days = new ArrayList<Day>();
+		
+		// 여기서 반복문 이용해서 12
 	}
 	
 	public void setMonth(int month) {

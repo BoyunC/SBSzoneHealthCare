@@ -11,14 +11,14 @@ public class Main {
 		System.out.println("Hello");
 		Scanner sc = new Scanner(System.in);
 		
-		// 임시 환자 데이터
-		new Patient("신짱구", "환자", "940819");
-		new Patient("신짱구", "환자", "930319");
-		new Patient("김철수", "환자", "921218");
-		new Patient("신짱구", "환자", "951201");
-		new Patient("신짱구", "환자", "960105");
-		new Patient("김철수", "환자", "971201");
-		new Patient("김철수", "환자", "981105");
+//		// 임시 환자 데이터
+//		new Patient("신짱구", "환자", "940819");
+//		new Patient("신짱구", "환자", "930319");
+//		new Patient("김철수", "환자", "921218");
+//		new Patient("신짱구", "환자", "951201");
+//		new Patient("신짱구", "환자", "960105");
+//		new Patient("김철수", "환자", "971201");
+//		new Patient("김철수", "환자", "981105");
 		
 		
 		
