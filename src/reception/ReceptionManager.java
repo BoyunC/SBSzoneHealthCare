@@ -10,6 +10,8 @@ import appointment.Appointment;
 import calendar.Calendars;
 import calendar.Day;
 import paper.DischargeInstruction;
+import paper.Paper;
+import paper.PrescriptionPaper;
 import people.Patient;
 import people.PatientFunction;
 import scanner.DataInput;
@@ -20,6 +22,7 @@ public class ReceptionManager {
 	Calendars calendars;
 	Appointment[] todayAppointments;
 	DischargeInstruction dci;
+	PrescriptionPaper psp;
 	int cnt = 0;
 	
 	public ReceptionManager() {
@@ -40,7 +43,8 @@ public class ReceptionManager {
 	
 	public void paymentFunction() {
 		//당일 예약자 리스트 받아오기
-		todayAppointments = Calendars.getAppointments();
+		todayAppointments = Calendars.days.get(Calendar.getInstance().get(Calendar.DATE)).getAppointments();
+//		todayAppointments = Calendars.getAppointments();
 		LinkedList<Appointment> list = new LinkedList<Appointment>();
 		for(Appointment a : todayAppointments) {
 			cnt++;
@@ -66,11 +70,10 @@ public class ReceptionManager {
 		}
 		
 		// 수납환자  빼기
-		
 		Patient patient = list.poll().getPatient();
-		// 뺀걸 payment 리스트에 넣으려면 어떻게 해야 할까?
-		//patient.paymentList.add(patient.diagnosisList.get(patient.diagnosisList.size()-1).getCharge());
-		patient.paymentList.add(new Payment(5000, new Date(), "카드"));
+
+		//patient.paymentList.add(new Payment(5000, new Date(), "카드"));
+		patient.paymentList.add(new Payment(patient.diagnosisList.get(patient.diagnosisList.size()-1).getCharge(), new Date(), "카드"));
 		
 	}
 	
@@ -93,7 +96,9 @@ public class ReceptionManager {
 			}
 			System.out.print("출력 진단 내역 선택: ");
 			int pickprintPaper = Integer.parseInt(DataInput.sc.nextLine()) - 1;
+			dci.setStringListDI(patient.diagnosisList.get(pickprintPaper));
 			dci.printDischargeInstruction(patient.diagnosisList.get(pickprintPaper));
+			dci.fileDischargeInstruction(patient.diagnosisList.get(pickprintPaper));
 			break;
 		case "2":
 			// 처방전
@@ -103,10 +108,16 @@ public class ReceptionManager {
 			}
 			System.out.print("출력 진단 내역 선택: ");
 			int pickPrescription = Integer.parseInt(DataInput.sc.nextLine()) - 1;
-			//dci.printDischargeInstruction(patient.diagnosisList.get(pickPrescription));
+			psp.setStringList(patient.diagnosisList.get(pickPrescription));
+			//psp.printPrescription(patient.diagnosisList.get(pickPrescription));
 			break;
 		case "3":
-
+			// 보험서류
+			for(int i=0;i<patient.diagnosisList.size();i++) {
+				cnt++;
+				System.out.println(cnt + "." + patient.diagnosisList.get(i));
+			}
+			
 			break;
 
 		}
