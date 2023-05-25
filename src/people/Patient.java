@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import appointment.Appointment;
+import diagnosis.Diagnosis;
 import medicine.Medicine;
 import reception.Payment;
 
@@ -15,10 +16,11 @@ public class Patient extends Person {
 	private Date firstVisitDate;
 	private Date lastVistiDate;
 	private String description;
-	private ArrayList<Vital> vitalList;
-	private ArrayList<Medicine> takingMedicineList;
-	private ArrayList<Appointment> appointmentList;
-	private ArrayList<Payment> paymentList;
+	public ArrayList<Vital> vitalList;
+	public ArrayList<Medicine> takingMedicineList;
+	public ArrayList<Appointment> appointmentList;
+	public ArrayList<Payment> paymentList;
+	public ArrayList<Diagnosis> diagnosisList;
 
 	public static ArrayList<Patient> patientList = new ArrayList<Patient>();
 
@@ -90,6 +92,14 @@ public class Patient extends Person {
 		System.out.print("혈당 : " + vitalList.get(vitalList.size() - 1).getBloodSuger());
 
 		// System.out.println("환자 성명 : " + patient()); 복용약
+	}
+
+	public ArrayList<Appointment> getAppointmentList() {
+		return appointmentList;
+	}
+
+	public void setAppointmentList(ArrayList<Appointment> appointmentList) {
+		this.appointmentList = appointmentList;
 	}
 
 	// 회원 검색
