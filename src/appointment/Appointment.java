@@ -13,6 +13,7 @@ public class Appointment {
 	private Doctor doctor;
 	private Patient patient;
 	
+	
 	public Appointment() {}
 
 	public Appointment(Calendar date, String time) {

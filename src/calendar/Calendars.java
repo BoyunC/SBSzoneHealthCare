@@ -11,8 +11,8 @@ import scanner.DataInput;
 
 public class Calendars {
 	public static List<Day> days = new ArrayList<Day>();
-	private int n;
-	private int[][] monthArr;
+	public static int n;
+	public static int[][] monthArr;
 	public Calendars() {}
 	
 	public void setMonth(int month) {
@@ -69,10 +69,10 @@ public class Calendars {
 			}
 		}
 		
-		getCalendar(n, monthArr);
+		getCalendar();
 	}
 	
-	static public void getCalendar(int n , int[][] monthArr) {
+	static public void getCalendar() {
 		int day = 1;
 		
 		for(int i = 0 ; i <= n / 7 + 1 ; i++) { // 완성된 달력 출력 -> isHoliday 확인해서 휴일이면 [x]로 표시
@@ -152,7 +152,7 @@ public class Calendars {
 		int selectAppoint = Integer.parseInt(DataInput.sc.nextLine());
 		int oldDate = list.get(selectAppoint - 1).getDate().get(Calendar.DATE);
 		
-		getCalendar(n,monthArr);
+		getCalendar();
 		System.out.println("수정할 예약의 날짜 선택 : ");
 		int date = Integer.parseInt(DataInput.sc.nextLine()) - 1;
 		
