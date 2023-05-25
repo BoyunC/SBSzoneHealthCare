@@ -5,7 +5,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import appointment.Appointment;
 import medicine.Medicine;
+import reception.Payment;
 
 public class Patient extends Person {
 	private String regiNum;
@@ -15,7 +17,8 @@ public class Patient extends Person {
 	private String description;
 	private ArrayList<Vital> vitalList;
 	private ArrayList<Medicine> takingMedicineList;
-	// private ArrayList<Payment>;
+	private ArrayList<Appointment> appointmentList;
+	private ArrayList<Payment> paymentList;
 
 	public static ArrayList<Patient> patientList = new ArrayList<Patient>();
 

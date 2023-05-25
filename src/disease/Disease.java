@@ -1,35 +1,31 @@
-package medicine;
+package disease;
 
 import java.util.ArrayList;
 
-import disease.Disease;
-
-public class Medicine {
-
+public class Disease {
 	private String id;
 	private String name;
-	private String efficacy;
 	private String insuranceContent;
 	private String classification;
 	
-	public static ArrayList<Medicine> medicineList = new ArrayList<>();
-
+	public static ArrayList<Disease> diseaseList = new ArrayList<>();
+	
 	// Constructor
-	public Medicine() {
-	}
+	public Disease() { }
 
-	public Medicine(String id, String name, String efficacy, String classification) {
+	public Disease(String id, String name, String classification) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.efficacy = efficacy;
 		this.classification = classification;
 		
-		medicineList.add(this);
+		diseaseList.add(this);
 	}
 
 	// Method
-
+	
+	
+	
 	// Getter & Setter
 	public String getId() {
 		return id;
@@ -47,14 +43,6 @@ public class Medicine {
 		this.name = name;
 	}
 
-	public String getEfficacy() {
-		return efficacy;
-	}
-
-	public void setEfficacy(String efficacy) {
-		this.efficacy = efficacy;
-	}
-
 	public String getInsuranceContent() {
 		return insuranceContent;
 	}
@@ -70,5 +58,5 @@ public class Medicine {
 	public void setClassification(String classification) {
 		this.classification = classification;
 	}
-
+	
 }
