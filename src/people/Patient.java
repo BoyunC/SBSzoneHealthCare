@@ -16,11 +16,11 @@ public class Patient extends Person {
 	private Date firstVisitDate;
 	private Date lastVistiDate;
 	private String description;
-	private ArrayList<Vital> vitalList;
-	private ArrayList<Medicine> takingMedicineList;
-	private ArrayList<Appointment> appointmentList;
-	private ArrayList<Payment> paymentList;
-	private ArrayList<Diagnosis> diagnosisList;
+	public ArrayList<Vital> vitalList;
+	public ArrayList<Medicine> takingMedicineList;
+	public ArrayList<Appointment> appointmentList;
+	public ArrayList<Payment> paymentList;
+	public ArrayList<Diagnosis> diagnosisList;
 
 	public static ArrayList<Patient> patientList = new ArrayList<Patient>();
 
