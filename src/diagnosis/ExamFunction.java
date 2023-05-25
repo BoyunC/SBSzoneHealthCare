@@ -29,7 +29,7 @@ public class ExamFunction {
 		// 의사 소견 : 선택사항 
 
 
-		System.out.print("[system] 의사 소견을 입력하시겠습니까? [y/n]");
+		System.out.print("[system] 의사 소견을 입력하시겠습니까? [y/n] : ");
 		
 		if (DataInput.sc.nextLine().equals("Y") || DataInput.sc.nextLine().equals("y")) {
 			System.out.print("[system] 의사 소견 : ");

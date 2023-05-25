@@ -2,22 +2,27 @@ package paper;
 
 import java.util.Date;
 
+import diagnosis.Diagnosis;
+import hospital.Hospital;
+
 public class Paper {
 	private Date printDate;
 	private Date examDate; 
 	private int numOfPaper;
-	//private Hospital hospital;
-	//private Diagnosis diagnosis;
+	private Hospital hospital;
+	private Diagnosis diagnosis;
 	
 	
 	//Constructor
 	public Paper() {}
 	
-	public Paper(Date printDate, Date examDate, int numOfPaper) {
+	public Paper(Date printDate, Date examDate, int numOfPaper, Diagnosis diagnosis, Hospital hospital) {
 		super();
 		this.printDate = printDate;
 		this.examDate = examDate;
 		this.numOfPaper = numOfPaper;
+		this.diagnosis = diagnosis;
+		this.hospital = hospital;
 	}
 
 	
@@ -45,6 +50,24 @@ public class Paper {
 	public void setNumOfPaper(int numOfPaper) {
 		this.numOfPaper = numOfPaper;
 	}
+
+	public Hospital getHospital() {
+		return hospital;
+	}
+
+	public void setHospital(Hospital hospital) {
+		this.hospital = hospital;
+	}
+
+	public Diagnosis getDiagnosis() {
+		return diagnosis;
+	}
+
+	public void setDiagnosis(Diagnosis diagnosis) {
+		this.diagnosis = diagnosis;
+	}
+
+	
 	
 	
 }
