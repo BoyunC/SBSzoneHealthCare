@@ -40,6 +40,7 @@ public class Exam {
 		for (Disease disease : havingDiseaseList) {
 			System.out.print(disease.getName() + "(" + disease.getId() + ") ");
 		}
+		System.out.println();
 		
 		if(opinion != null) {
 			System.out.println("의사 소견 : " + opinion);

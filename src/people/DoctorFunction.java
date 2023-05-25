@@ -55,7 +55,7 @@ public class DoctorFunction {
 		}
 
 		// 의사 존재하지 않는 경우
-		if (searchDoctorList.isEmpty()) {
+		if (searchDoctorList.isEmpty() || searchDoctorList == null) {
 			System.out.println("해당하는 이름의 의사가 존재하지 않습니다.");
 			return null;
 		}

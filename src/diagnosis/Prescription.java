@@ -23,18 +23,6 @@ public class Prescription {
 	public Prescription(Appointment appointment) {
 		super();
 		this.appointment = appointment;
-
-		System.out.println("---처방---");
-		// 병 검색 메소드
-		while (true) {
-			System.out.print("약명 입력 : ");
-			String nameMedicine = DataInput.sc.nextLine();
-			if (nameMedicine.equals("Q") || nameMedicine.equals("q"))
-				break;
-			havingMedicineList.add(MedicineFunction.searchMedicine(nameMedicine));
-		}
-
-		date = new Date();
 	}
 
 	// Method
@@ -44,6 +32,8 @@ public class Prescription {
 		for(Medicine medicine : havingMedicineList) {
 			System.out.print(medicine.getName() + "(" + medicine.getId() + ") ");
 		}
+		
+		System.out.println();
 	}
 
 	
@@ -72,6 +62,10 @@ public class Prescription {
 		this.havingMedicineList = havingMedicineList;
 	}
 	
-	public void set
+
+	public void addHavingMedicineList(Medicine medicine) {
+		this.havingMedicineList.add(medicine);
+	}
+
 
 }
