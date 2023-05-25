@@ -28,27 +28,6 @@ public class Exam {
 	public Exam(Appointment appointment) {
 		super();
 		this.appointment = appointment;
-
-		System.out.print("자세한 증상 : ");
-		detailSymptom = DataInput.sc.nextLine();
-
-		System.out.println("---진단---");
-		// 병 검색 메소드
-		while (true) {
-			System.out.print("병명 입력 : ");
-			String nameDisease = DataInput.sc.nextLine();
-			if (nameDisease.equals("Q") || nameDisease.equals("q"))
-				break;
-			havingDiseaseList.add(DiseaseFunction.searchDisease(nameDisease));
-		}
-
-		System.out.print("의사 소견을 입력하시겠습니까? (Y/N)");
-		if (DataInput.sc.nextLine().equals("Y") || DataInput.sc.nextLine().equals("y")) {
-			System.out.print("진단 : ");
-			opinion = DataInput.sc.nextLine();
-		}
-
-		date = new Date();
 	}
 
 	// Method
@@ -91,4 +70,34 @@ public class Exam {
 	public void setAppointment(Appointment appointment) {
 		this.appointment = appointment;
 	}
+
+	public String getDetailSymptom() {
+		return detailSymptom;
+	}
+
+	public void setDetailSymptom(String detailSymptom) {
+		this.detailSymptom = detailSymptom;
+	}
+
+	public String getDiagnosis() {
+		return diagnosis;
+	}
+
+	public void setDiagnosis(String diagnosis) {
+		this.diagnosis = diagnosis;
+	}
+
+	public ArrayList<Disease> getHavingDiseaseList() {
+		return havingDiseaseList;
+	}
+
+	public void setHavingDiseaseList(ArrayList<Disease> havingDiseaseList) {
+		this.havingDiseaseList = havingDiseaseList;
+	}
+	
+	public void addHavingDiseaseList(Disease disease) {
+		havingDiseaseList.add(disease);
+	}
+	
+	
 }

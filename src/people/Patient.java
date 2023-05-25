@@ -80,16 +80,30 @@ public class Patient extends Person {
 		System.out.println("특이사항 : " + this.getDescription());
 
 		System.out.print("복용중인 약 : ");
-		for (Medicine medicine : takingMedicineList) {
-			System.out.println(medicine.getName() + "(" + medicine.getId() + ")  ");
+		if (takingMedicineList.isEmpty()) {
+			System.out.println("없음");
+		} else {
+			for (Medicine medicine : takingMedicineList) {
+				if (medicine != null)
+					System.out.print(medicine.getName() + "(" + medicine.getId() + ")  ");
+			}
+			System.out.println();
 		}
 
 		// 가장 최근 vital 출력
-		System.out.print("체온 : " + vitalList.get(vitalList.size() - 1).getTemperature());
-		System.out.print("체중 : " + vitalList.get(vitalList.size() - 1).getWeight());
-		System.out.print("신장 : " + vitalList.get(vitalList.size() - 1).getHeight());
-		System.out.print("혈압 : " + vitalList.get(vitalList.size() - 1).getBloodPressure());
-		System.out.print("혈당 : " + vitalList.get(vitalList.size() - 1).getBloodSuger());
+		if (!vitalList.isEmpty()) {
+			System.out.print("체온 : " + vitalList.get(vitalList.size() - 1).getTemperature());
+			System.out.print("체중 : " + vitalList.get(vitalList.size() - 1).getWeight());
+			System.out.print("신장 : " + vitalList.get(vitalList.size() - 1).getHeight());
+			System.out.print("혈압 : " + vitalList.get(vitalList.size() - 1).getBloodPressure());
+			System.out.print("혈당 : " + vitalList.get(vitalList.size() - 1).getBloodSuger());
+		} else {
+			System.out.println("체온 : 데이터 없음 ");
+			System.out.println("체중 : 데이터 없음 ");
+			System.out.println("신장 : 데이터 없음 ");
+			System.out.println("혈압 : 데이터 없음 ");
+			System.out.println("혈당 : 데이터 없음 ");
+		}
 
 		// System.out.println("환자 성명 : " + patient()); 복용약
 	}

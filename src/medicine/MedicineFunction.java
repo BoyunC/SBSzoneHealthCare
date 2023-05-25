@@ -22,11 +22,11 @@ public static Medicine searchMedicine(String name) {
 
 		// 약이 존재하지 않는 경우
 		if (searchMedicineList.isEmpty()) {
-			System.out.println("해당하는 약이 존재하지 않습니다.");
+			System.out.println("[system] 해당하는 약이 존재하지 않습니다.");
 			return null;
 		}
 
-		System.out.print("약 선택 : ");
+		System.out.print("[system] 약 선택 : ");
 		int pickPatient = Integer.parseInt(DataInput.sc.nextLine()) - 1;
 
 		return searchMedicineList.get(pickPatient);
