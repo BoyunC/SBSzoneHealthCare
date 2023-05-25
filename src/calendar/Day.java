@@ -18,7 +18,6 @@ public class Day {
 	
 	Appointment[] appointments;
 
-
 	static String[] time = new String[] {
 		"09:00", "09:30", "10:00", "10:30", 
 		"11:00", "11:30", "13:00", "13:30", 
@@ -56,19 +55,20 @@ public class Day {
 		String name = DataInput.sc.nextLine();
 		
 	}
-	
-	public void getAppointments() { 
+
+	public void showAppointments() { 
 		int i = 0;
 		System.out.println(date + "일 예약 현황 : ");
 		System.out.println();
 		for(int j = 0 ; j < time.length / 2 ; j++) {
 			for(int k = 0 ; k < 2 ; k++) { 
 				String txt = "[" + (i+1) + "]" + time[i] + ": ";
-				if(appointments[i].getPatient().getName() != null) {
-					txt += appointments[i++].getPatient().getName(); 
+				if(appointments[i].getPatient() != null) {
+					txt += appointments[i].getPatient().getName(); 
 				} else {
 					txt += "\t";
 				}
+				i++;
 				System.out.print(txt + "\t");
 			}
 			System.out.println();
@@ -86,14 +86,14 @@ public class Day {
 	}
 	
 	public void makeAppointment() {
-		getAppointments();
+		showAppointments();
 		
 		System.out.print("예약 시간 입력 : ");
 		int selectTime = Integer.parseInt(DataInput.sc.nextLine()); 
 		
 		//환자 정보 입력
 		//만약에 환자가 존재하지 않으면 환자 등록으로? 
-		System.out.println("환자 이름 입력 : ");
+		System.out.print("환자 이름 입력 : ");
 		String name = DataInput.sc.nextLine();
 		appointments[selectTime - 1].setPatient(Patient.getPatient(name));
 		
@@ -155,4 +155,15 @@ public class Day {
 	public void setReason(String reason) {
 		this.reason = reason;
 	}
+
+	
+	public Appointment[] getAppointments() {
+		return appointments;
+	}
+
+	public void setAppointments(Appointment[] appointments) {
+		this.appointments = appointments;
+	}
+	
+	
 }
