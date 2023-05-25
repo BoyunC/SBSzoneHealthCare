@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import appointment.Appointment;
 import scanner.DataInput;
 
 public class Calendars {
-	static List<Day> days;
+	public static List<Day> days;
 	
 	public Calendars() {
 		days = new ArrayList<Day>();
@@ -90,6 +91,13 @@ public class Calendars {
 			}
 			System.out.println();
 		}
+	}
+	
+	static public Appointment[] getAppointments() {
+		System.out.print("예약 리스트 확인할 날짜 입력 : ");
+		int date = Integer.parseInt(DataInput.sc.nextLine()) - 1;
+		
+		return days.get(date).appointments;
 	}
 	
 	static public void setHoliday() {

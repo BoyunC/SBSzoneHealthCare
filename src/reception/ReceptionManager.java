@@ -2,6 +2,7 @@ package reception;
 
 import java.util.ArrayList;
 
+import calendar.Calendars;
 import people.Patient;
 import people.PatientFunction;
 import scanner.DataInput;
@@ -9,6 +10,7 @@ import scanner.DataInput;
 public class ReceptionManager {
 	PatientFunction patientFunction;
 	ArrayList<Patient> patientList;
+	Calendars calendars;
 	int cnt = 0;
 	
 	public ReceptionManager() {
@@ -29,10 +31,14 @@ public class ReceptionManager {
 	
 	public void paymentFunction() {
 		//당일 예약자 리스트 받아오기인데 일단은 임시 환자 데이터를 받아오겠습니다.
-		for(Patient patient : patientList) {
-			cnt++;
-			System.out.println(cnt + "." + patient.getName() + " " + patient.getRegiNum());
-		}
+		
+		
+		
+		
+//		for(Patient patient : patientList) {
+//			cnt++;
+//			System.out.println(cnt + "." + patient.getName() + " " + patient.getRegiNum());
+//		}
 		
 		System.out.print("수납할 환자: ");
 		int pickPayment = Integer.parseInt(DataInput.sc.nextLine()) - 1;
