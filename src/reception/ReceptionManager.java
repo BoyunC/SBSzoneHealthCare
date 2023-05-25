@@ -1,19 +1,29 @@
 package reception;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.LinkedList;
 
+import appointment.Appointment;
 import calendar.Calendars;
+import calendar.Day;
+import paper.DischargeInstruction;
 import people.Patient;
 import people.PatientFunction;
 import scanner.DataInput;
 
-public class ReceptionManager {
-	PatientFunction patientFunction;
+public class ReceptionManager { 
 	ArrayList<Patient> patientList;
+	PatientFunction patientFunction;
 	Calendars calendars;
+	Appointment[] todayAppointments;
+	DischargeInstruction dci;
 	int cnt = 0;
 	
 	public ReceptionManager() {
+		
 		patientList = new ArrayList<Patient>();
 		
 		// 임시 환자 데이터
@@ -24,26 +34,25 @@ public class ReceptionManager {
 		patientList.add(new Patient("흰둥이", "환자", "951201", "환자ㅏ어저구저쩌구", null));
 		patientList.add(new Patient("신형만", "환자", "960105", "환자ㅏ어저구저쩌구", null));
 		patientList.add(new Patient("김철수", "환자", "971201", "환자ㅏ어저구저쩌구", null));
-		patientList.add(new Patient("김맹구", "환자", "981105", "환자ㅏ어저구저쩌구", null));
-			
+		patientList.add(new Patient("김맹구", "환자", "981105", "환자ㅏ어저구저쩌구", null));	
 
 	}
 	
 	public void paymentFunction() {
-		//당일 예약자 리스트 받아오기인데 일단은 임시 환자 데이터를 받아오겠습니다.
+		//당일 예약자 리스트 받아오기
+		todayAppointments = Calendars.getAppointments();
+		LinkedList<Appointment> list = new LinkedList<Appointment>();
+		for(Appointment a : todayAppointments) {
+			cnt++;
+			list.add(a);
+			System.out.println(cnt + "." + a.getPatient().getName() + "(" + a.getPatient().getRegiNum() + ")");
+		}
 		
-		
-		
-		
-//		for(Patient patient : patientList) {
-//			cnt++;
-//			System.out.println(cnt + "." + patient.getName() + " " + patient.getRegiNum());
-//		}
 		
 		System.out.print("수납할 환자: ");
 		int pickPayment = Integer.parseInt(DataInput.sc.nextLine()) - 1;
 		System.out.println("=========================================");
-		System.out.println("이름: " + patientList.get(pickPayment).getName() + "\n주민등록번호: " + patientList.get(pickPayment).getRegiNum()
+		System.out.println("이름: " + list.get(pickPayment).getPatient().getName() + "\n주민등록번호: " + list.get(pickPayment).getPatient().getRegiNum()
 				+ "\n진단명: " + "\n수납금액: ");
 		System.out.println("=========================================");
 		System.out.println("1.현금 2.카드 ");
@@ -56,8 +65,12 @@ public class ReceptionManager {
 			System.out.println("카드로 결제가 완료되었습니다.");
 		}
 		
-		// queue 
+		// 수납환자  빼기
+		
+		Patient patient = list.poll().getPatient();
 		// 뺀걸 payment 리스트에 넣으려면 어떻게 해야 할까?
+		//patient.paymentList.add(patient.diagnosisList.get(patient.diagnosisList.size()-1).getCharge());
+		patient.paymentList.add(new Payment(5000, new Date(), "카드"));
 		
 	}
 	
@@ -74,10 +87,23 @@ public class ReceptionManager {
 		switch (paper) {
 		case "1":
 			// 해당 환자의 진단내역 리스트 불러오고 그중 하나 선택해서 출력
-			
+			for(int i=0;i<patient.diagnosisList.size();i++) {
+				cnt++;
+				System.out.println(cnt + "." + patient.diagnosisList.get(i));
+			}
+			System.out.print("출력 진단 내역 선택: ");
+			int pickprintPaper = Integer.parseInt(DataInput.sc.nextLine()) - 1;
+			dci.printDischargeInstruction(patient.diagnosisList.get(pickprintPaper));
 			break;
 		case "2":
-
+			// 처방전
+			for(int i=0;i<patient.diagnosisList.size();i++) {
+				cnt++;
+				System.out.println(cnt + "." + patient.diagnosisList.get(i).getPrescription());
+			}
+			System.out.print("출력 진단 내역 선택: ");
+			int pickPrescription = Integer.parseInt(DataInput.sc.nextLine()) - 1;
+			//dci.printDischargeInstruction(patient.diagnosisList.get(pickPrescription));
 			break;
 		case "3":
 

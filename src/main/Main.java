@@ -11,7 +11,6 @@ import scanner.DataInput;
 public class Main {
 
 	public static void main(String[] args) {
-
 		new FakeData();
 		Scanner sc = new Scanner(System.in);
 
@@ -81,7 +80,8 @@ public class Main {
 				case "q":
 					System.out.println("[system] 프로그램이 종료됩니다. ");
 					// 전체 프로그램 종료할지 확인
-					return;
+					break detailMenuLoop;
+
 
 				default:
 					System.out.println("[system] 해당 메뉴가 존재하지 않습니다.");

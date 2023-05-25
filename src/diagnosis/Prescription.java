@@ -62,8 +62,10 @@ public class Prescription {
 		this.havingMedicineList = havingMedicineList;
 	}
 	
+
 	public void addHavingMedicineList(Medicine medicine) {
 		this.havingMedicineList.add(medicine);
 	}
+
 
 }

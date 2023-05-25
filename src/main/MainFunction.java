@@ -1,5 +1,6 @@
 package main;
 
+
 import appointment.Appointment;
 import diagnosis.Diagnosis;
 import diagnosis.DiagnosisFunction;
@@ -10,6 +11,7 @@ import medicine.MedicineFunction;
 import people.Doctor;
 import people.Nurse;
 import people.Patient;
+
 import people.PatientFunction;
 import scanner.DataInput;
 
@@ -65,7 +67,11 @@ public class MainFunction {
 	// 메뉴 출력 => 권한 분류
 	public static void printMenu(int flag) {
 		System.out.println("**************MENU*************");
+
 		System.out.println(flag);
+
+
+
 		if (flag == 1) {
 			System.out.println("[1] 스케쥴 관리");
 			System.out.println("[2] 환자 관리");
@@ -141,14 +147,17 @@ public class MainFunction {
 			System.out.println("========환자 조회========");
 			System.out.print("[system] 검색할 환자 명 :");
 			String name = DataInput.sc.nextLine();
+
 			Patient patient = PatientFunction.searchPatient(name);
 			if(patient!=null) {
 				patient.printPatient();
 			}
+
 			System.out.println("[system] 이전 화면으로 돌아갑니다.");
 			break;
 		case "3":
 			System.out.println("========환자 진단========");
+
 			// DiagnosisFunction.
 			// 오늘 예약 리스트 받아와서 해당 예약 리스트 선택하는 기능 구현 
 			// 가짜 데이터
