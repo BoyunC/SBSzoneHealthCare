@@ -1,8 +1,9 @@
 package main;
 
 
-import appointment.Appointment;
-import diagnosis.Diagnosis;
+import calendar.CalendarManager;
+import calendar.Calendars;
+
 import diagnosis.DiagnosisFunction;
 import disease.Disease;
 import disease.DiseaseFunction;
@@ -117,17 +118,20 @@ public class MainFunction {
 	public static void menuAppointment(String menu) {
 		switch (menu) {
 		case "1":
-			
-
+			System.out.println("========진료 예약========");
+			CalendarManager.start();
 			break;
 		case "2":
-
+			System.out.println("========예약 수정========");
+			
 			break;
 		case "3":
+			System.out.println("========예약 취소========");
 
 			break;
 		case "4":
-
+			System.out.println("======당일 예약 현황======");
+			
 			break;
 
 		default:
@@ -158,10 +162,12 @@ public class MainFunction {
 		case "3":
 			System.out.println("========환자 진단========");
 
+
 			// DiagnosisFunction.
 			// 오늘 예약 리스트 받아와서 해당 예약 리스트 선택하는 기능 구현 
 			// 가짜 데이터
 			DiagnosisFunction.diagnosisPatient(FakeData.appoint);
+
 			break;
 		case "4":
 			System.out.println("========환자 진단 내역========");
