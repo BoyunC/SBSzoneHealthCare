@@ -1,4 +1,5 @@
 package main;
+
 import appointment.Appointment;
 import diagnosis.Diagnosis;
 import calendar.CalendarManager;
@@ -68,10 +69,6 @@ public class MainFunction {
 	public static void printMenu(int flag) {
 		System.out.println("**************MENU*************");
 
-		System.out.println(flag);
-
-
-
 		if (flag == 1) {
 			System.out.println("[1] 스케쥴 관리");
 			System.out.println("[2] 환자 관리");
@@ -119,6 +116,7 @@ public class MainFunction {
 		case "1":
 			System.out.println("========진료 예약========");
 			CalendarManager.start();
+
 			break;
 		case "2":
 			System.out.println("========예약 수정========");
@@ -148,11 +146,11 @@ public class MainFunction {
 			break;
 		case "2":
 			System.out.println("========환자 조회========");
-			System.out.print("[system] 검색할 환자 명 :");
+			System.out.print("[system] 검색할 환자 명 : ");
 			String name = DataInput.sc.nextLine();
 
 			Patient patient = PatientFunction.searchPatient(name);
-			if(patient!=null) {
+			if (patient != null) {
 				patient.printPatient();
 			}
 
@@ -162,20 +160,20 @@ public class MainFunction {
 			System.out.println("========환자 진단========");
 
 			// DiagnosisFunction.
-			// 오늘 예약 리스트 받아와서 해당 예약 리스트 선택하는 기능 구현 
+			// 오늘 예약 리스트 받아와서 해당 예약 리스트 선택하는 기능 구현
 			// 가짜 데이터
 			DiagnosisFunction.diagnosisPatient(FakeData.appoint);
 			break;
 		case "4":
 			System.out.println("========환자 진단 내역========");
-			System.out.print("[system] 검색할 환자 명 :");
+			System.out.print("[system] 검색할 환자 명 : ");
 			String nameP = DataInput.sc.nextLine();
 			Patient patient4 = PatientFunction.searchPatient(nameP);
-			if(patient4==null) {
+			if (patient4 == null) {
 				break;
 			}
 			int cnt = 1;
-			for(Diagnosis diagnosis : patient4.diagnosisList) {
+			for (Diagnosis diagnosis : patient4.diagnosisList) {
 				System.out.println("[" + (cnt++) + "] 번째 진단");
 				diagnosis.getExam().printExam();
 				diagnosis.getPrescription().printPrescription();
@@ -183,14 +181,14 @@ public class MainFunction {
 			break;
 		case "5":
 			System.out.println("========약 검색========");
-			System.out.print("[system] 검색할 약 명 :");
+			System.out.print("[system] 검색할 약 명 : ");
 			String nameM = DataInput.sc.nextLine();
 			Medicine medicine = MedicineFunction.searchMedicine(nameM);
 			medicine.printMedicine(medicine);
 			break;
 		case "6":
 			System.out.println("========병 검색========");
-			System.out.print("[system] 검색할 병 명 :");
+			System.out.print("[system] 검색할 병 명 : ");
 			String nameD = DataInput.sc.nextLine();
 			Disease disease = DiseaseFunction.searchDisease(nameD);
 			disease.printDisease(disease);

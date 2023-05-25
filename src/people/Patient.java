@@ -137,7 +137,6 @@ public class Patient extends Person {
 
 	//
 	private void printResult() {
-		System.out.println("회원 등록이 완료되었습니다.");
 	}
 
 	//
