@@ -20,7 +20,7 @@ public class Patient extends Person {
 	public ArrayList<Medicine> takingMedicineList;
 	public ArrayList<Appointment> appointmentList;
 	public ArrayList<Payment> paymentList;
-	public ArrayList<Diagnosis> diagnosisList;
+
 
 	public static ArrayList<Patient> patientList = new ArrayList<Patient>();
 
