@@ -19,13 +19,8 @@ public class Patient extends Person {
 	public ArrayList<Vital> vitalList;
 	public ArrayList<Medicine> takingMedicineList;
 	public ArrayList<Appointment> appointmentList;
-<<<<<<< HEAD
 	public ArrayList<Payment> paymentList;
 	public ArrayList<Diagnosis> diagnosisList;
-
-=======
-	public ArrayList<Payment> paymentLis
->>>>>>> de7df7fa01b01defac137677c95043b395ffc012
 
 	public static ArrayList<Patient> patientList = new ArrayList<Patient>();
 
