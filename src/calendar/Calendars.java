@@ -93,7 +93,7 @@ public class Calendars {
 		}
 	}
 	
-	static Appointment[] getAppointments() {
+	static public Appointment[] getAppointments() {
 		System.out.print("예약 리스트 확인할 날짜 입력 : ");
 		int date = Integer.parseInt(DataInput.sc.nextLine()) - 1;
 		
