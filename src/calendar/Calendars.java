@@ -5,11 +5,14 @@ import java.util.Calendar;
 import java.util.List;
 
 import appointment.Appointment;
+import people.Patient;
+import people.PatientFunction;
 import scanner.DataInput;
 
 public class Calendars {
 	public static List<Day> days;
-	
+	private int n;
+	private int[][] monthArr;
 	public Calendars() {
 		days = new ArrayList<Day>();
 		
@@ -28,10 +31,10 @@ public class Calendars {
 		int start = gc.get(Calendar.DAY_OF_WEEK) -1; //1일 요일 구하는 기준점
 		int start2 = start; //요일 전체 구하는 인덱스
 		
-		int n = gc.getActualMaximum(Calendar.DATE); //한달에 며칠 있는 지 
+		n = gc.getActualMaximum(Calendar.DATE); //한달에 며칠 있는 지 
 		int end = start + n;
 		char[] week = {'일','월','화','수','목','금','토'};
-		int[][] monthArr = new int[n/7+2][7];
+		monthArr = new int[n/7+2][7];
 		
 		for(int i =0 ; i < week.length ; i++) {  //요일 출력
 			System.out.printf("%c\t", week[i]);
@@ -130,7 +133,48 @@ public class Calendars {
 	}
 	
 	public void updateAppointment() {
-		System.out.println("");
+		//환자 먼저 검색 -> 
+		int i = 1;
+		
+		System.out.print("환자 성명 : ");
+		String name = DataInput.sc.nextLine();
+		Patient tempP = PatientFunction.searchPatient(name);
+		
+		List<Appointment> list = tempP.getAppointmentList();
+		
+		System.out.println("예약 리스트");
+		for(Appointment a : list) {
+			System.out.print("[" + i++ + "]" 
+					+ a.getDate().get(Calendar.MONTH) + "월 "
+					+ a.getDate().get(Calendar.DATE) + "일 "
+					+ a.getTime()
+			);
+		}
+		
+		//수정할 예약 선택
+		System.out.print("변경할 예약 선택 : ");
+		int selectAppoint = Integer.parseInt(DataInput.sc.nextLine());
+		int oldDate = list.get(selectAppoint - 1).getDate().get(Calendar.DATE);
+		
+		getCalendar(n,monthArr);
+		System.out.println("수정할 예약의 날짜 선택 : ");
+		int date = Integer.parseInt(DataInput.sc.nextLine()) - 1;
+		
+		//시간 선택
+		System.out.println("변경할 시간 선택 : ");
+		days.get(date).showAppointments();
+		int time = Integer.parseInt(DataInput.sc.nextLine());
+		
+		
+		
+		//환자의 예약 목록에서도 업데이트 해주고 일별 목록에서도 업데이트 해줘야 함
+		days.get(date).appointments[time - 1].setPatient(tempP);
+		days.get(date).appointments[time - 1]
+				.setSymtom(list.get(selectAppoint - 1).getSymtom());
+		days.get(date).appointments[time - 1]
+				.setDoctor(list.get(selectAppoint - 1).getDoctor());
+		
+//		list.get(selectAppoint - 1).
 	}
 	
 	static public List<Day> getDays() {
