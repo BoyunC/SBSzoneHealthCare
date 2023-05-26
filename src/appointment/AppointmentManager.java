@@ -104,6 +104,7 @@ public class AppointmentManager {
 	public static List<Appointment> getTodayAppointList() { 
 		
 		List<Appointment> temp = new ArrayList<Appointment>();
+
 		int i = 1;
 		System.out.println(Calendar.getInstance().get(Calendar.DATE));
 		for(Appointment a : Calendars.days.get(Calendar.getInstance().get(Calendar.DATE) - 1).getAppointments()) {
@@ -112,6 +113,7 @@ public class AppointmentManager {
 			}
 		}
 		return temp;
+
 	}
 }
 
