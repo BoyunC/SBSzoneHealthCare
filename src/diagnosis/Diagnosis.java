@@ -1,10 +1,13 @@
 package diagnosis;
 
+import java.util.Date;
+
 public class Diagnosis {
 
 	private Exam exam;
 	private Prescription prescription;
 	private int charge;
+	private Date date; 
 
 	// Constructor
 	public Diagnosis() {
@@ -14,6 +17,8 @@ public class Diagnosis {
 		super();
 		this.exam = exam;
 		this.prescription = prescription;
+		this.charge = prescription.getHavingMedicineList().size() * 2500; 
+		this.date = new Date();
 	}
 	
 	// Method
@@ -46,5 +51,13 @@ public class Diagnosis {
 	public void setCharge(int charge) {
 		this.charge = charge;
 	}
-	
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	 
 }

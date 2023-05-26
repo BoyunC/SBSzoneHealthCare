@@ -9,11 +9,12 @@ import disease.Disease;
 
 public class DischargeInstruction extends Paper {
 	
-	public ArrayList<String> stringList = new ArrayList<String>();
+	public static ArrayList<String> stringList= new ArrayList<String>();
 	
-	public void setStringListDI(Diagnosis diagnosis) {
+	public static void setStringListDI(Diagnosis diagnosis) {
+
 		stringList.add("===================================");
-		stringList.add("			       처방전	  		       ");
+		stringList.add("			       진단서	  		       ");
 		stringList.add("\n");
 		stringList.add("\t\t성명 : " + diagnosis.getExam().getAppointment().getPatient().getName());
 		stringList.add("\t\t주민등록번호: " + diagnosis.getExam().getAppointment().getPatient().getRegiNum());
@@ -31,8 +32,9 @@ public class DischargeInstruction extends Paper {
 		stringList.add("\n");
 		stringList.add("\n");
 		stringList.add("===================================");
+
 	}
-	public void printDischargeInstruction(Diagnosis diagnosis) {
+	public static void printDischargeInstruction(Diagnosis diagnosis) {
 //		System.out.println("===================================");
 //		System.out.println("			       진단서	  		       ");
 //		System.out.println();
@@ -52,17 +54,18 @@ public class DischargeInstruction extends Paper {
 		
 	}
 	
-	public void fileDischargeInstruction(Diagnosis diagnosis) {
-		String fileName = diagnosis.getExam().getAppointment().getPatient().getName();
+	public static void fileDischargeInstruction(Diagnosis diagnosis) {
+		String fileName = diagnosis.getExam().getAppointment().getPatient().getName()+ "_진단서.txt";
 		
 		try {
-			FileWriter writer = new FileWriter(fileName);
-			//String temp2 = null;
-			for(String str : stringList) {
-				writer.write(str);
-				//temp2 += str + "\n";
+			String temp2 = "";
+			for (String str : stringList) {
+				// writer.write(str);
+				temp2 += str + "\n";
 			}
-			//writer.write(temp2);						
+			FileWriter writer = new FileWriter(fileName);
+			writer.write(temp2);					
+			writer.close();
 		} catch (IOException e) {			
 			e.printStackTrace();
 		}

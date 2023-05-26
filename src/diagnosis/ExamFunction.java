@@ -30,8 +30,8 @@ public class ExamFunction {
 
 
 		System.out.print("[system] 의사 소견을 입력하시겠습니까? [y/n] : ");
-		
-		if (DataInput.sc.nextLine().equals("Y") || DataInput.sc.nextLine().equals("y")) {
+		String hasOpinion = DataInput.sc.nextLine();
+		if (hasOpinion.equals("Y") || hasOpinion.equals("y")) {
 			System.out.print("[system] 의사 소견 : ");
 			exam.setOpinion(DataInput.sc.nextLine());
 		}

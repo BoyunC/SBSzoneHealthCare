@@ -1,8 +1,11 @@
 package main;
 
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import appointment.Appointment;
+import calendar.Calendars;
+import calendar.Day;
 import disease.Disease;
 import medicine.Medicine;
 import people.Doctor;
@@ -17,8 +20,8 @@ public class FakeData {
 		// 액터 (의사, 간호사, 환자)
 		
 		// 의사
-		new Doctor("김영희", 30, "의사", "진료실1", "소아과", "a1774152d21");				//dr_0001, 0000
-		new Doctor("이수영", 50, "의사", "1234", "진료실2",  "내과",  "a1157114d18");	//dr_0002, 1234
+		Doctor d1 = new Doctor("김영희", 30, "의사", "진료실1", "소아과", "a1774152d21");				//dr_0001, 0000
+		Doctor d2 = new Doctor("이수영", 50, "의사", "1234", "진료실2",  "내과",  "a1157114d18");	//dr_0002, 1234
 		new Doctor("박혜성", 45, "의사", "진료실3", "이비인후과", "a1247152d84");			//dr_0003, 0000
 		new Doctor("김수영", 47, "의사", "진료실4", "피부과", "a1734524d14");
 		new Doctor("서강준", 32, "의사", "진료실5", "안과", "a1652152d81");
@@ -31,9 +34,9 @@ public class FakeData {
 		new Nurse("맹구", 32, "간호사",  "c005164s1");
 		
 		// 환자 
-		new Patient("이선빈", "환자", "940819-1234567", "복통, 설사", null);
-		new Patient("강지영", "환자", "930319-1234567", "기침", null);
-		new Patient("진세연", "환자", "921001-1234567", "간지러움", null);
+		Patient p1 = new Patient("이선빈", "환자", "940819-1234567", "복통, 설사", null);
+		Patient p2 =new Patient("강지영", "환자", "930319-1234567", "기침", null);
+		Patient p3 =new Patient("진세연", "환자", "921001-1234567", "간지러움", null);
 		new Patient("박선빈", "환자", "971021-1234567", "간지러움", null);
 		new Patient("오세연", "환자", "980525-1234567", "간지러움", null);
 		new Patient("강세연", "환자", "930423-1234567", "간지러움", null);
@@ -42,6 +45,29 @@ public class FakeData {
 		//Appointment appoint = new Appointment(Calendar.getInstance(), "10:00");
 		appoint.setPatient(new Patient("신짱구", "환자", "001205-1234567", "두통, 감기", null));
 		appoint.setDoctor(new Doctor("이슬이", 28, "의사", "진료실1", "내과", "1235a"));
+		
+		
+//		Calendar cal = new GregorianCalendar();
+//		cal = Calendar.getInstance();
+//		System.out.println(cal);
+//		
+//		new Appointment(cal, "9:00");
+//		new Appointment(cal, "10:00");
+//		new Appointment(cal, "11:30");
+//		
+//		// 오늘 days 객체 하나 생성
+//		Day day = new Day(4, 26);
+//		
+//		Appointment[] appointments = {
+//				new Appointment(cal, "9:00", "기침", d1, p1), null, new Appointment(cal, "10:00", "재채기, 콧물", d1, p2), null,
+//				null, new Appointment(cal, "11:30", "열감, 두통", d2, p3), null , null,
+//				null, null, null, null,
+//				null, null, null, null
+//		};
+//		
+//		day.setAppointments(appointments);
+//		
+//		Calendars.days.add(day);
 
 		
 		// 약 

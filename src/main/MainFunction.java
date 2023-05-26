@@ -102,7 +102,8 @@ public class MainFunction {
 		} else if (menu.equals("3")) {
 			System.out.println("********ADMINISTRATION********");
 			System.out.println("[1] 진료비수납 ");
-			System.out.println("[2] 관련서류출력 ");
+			System.out.println("[2] 진료비수납내역조회 ");
+			System.out.println("[3] 관련 서류 출력 ");
 			System.out.println("[b] 이전으로 ");
 		}
 
@@ -161,10 +162,14 @@ public class MainFunction {
 		case "3":
 			System.out.println("========환자 진단========");
 
-			// DiagnosisFunction.
-			// 오늘 예약 리스트 받아와서 해당 예약 리스트 선택하는 기능 구현
-			// 가짜 데이터
-			DiagnosisFunction.diagnosisPatient(FakeData.appoint);
+			System.out.println("오늘의 진료 대기자 리스트---");
+			int  cnt = 1;
+			for(Appointment appoint : AppointmentManager.getTodayAppointList()) {
+				System.out.println("["  + (cnt++) + "] " + appoint.getPatient().getName() + " (" + appoint.getPatient().getRegiNum() + ")"  );
+			}
+			System.out.print("[system] 진단할 환자 : ");
+			int numD = Integer.parseInt(DataInput.sc.nextLine());
+			DiagnosisFunction.diagnosisPatient(AppointmentManager.getTodayAppointList().get(numD-1));
 			break;
 		case "4":
 			System.out.println("========환자 진단 내역========");
@@ -174,9 +179,9 @@ public class MainFunction {
 			if (patient4 == null) {
 				break;
 			}
-			int cnt = 1;
+			int cnt2 = 1;
 			for (Diagnosis diagnosis : patient4.diagnosisList) {
-				System.out.println("[" + (cnt++) + "] 번째 진단");
+				System.out.println("[" + (cnt2++) + "] 번째 진단");
 				diagnosis.getExam().printExam();
 				diagnosis.getPrescription().printPrescription();
 			}
@@ -210,9 +215,13 @@ public class MainFunction {
 			rm.paymentFunction();
 			break;
 		case "2":
-
+			System.out.println("========진료비수납내역조회========");
+			rm.printPaymentList();
 			break;
-
+		case "3":
+			System.out.println("========관련서류출력========");
+			rm.printPaper();
+			break;
 		default:
 			break;
 		}

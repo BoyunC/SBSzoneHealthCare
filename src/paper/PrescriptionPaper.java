@@ -10,9 +10,9 @@ import medicine.Medicine;
 
 public class PrescriptionPaper extends Paper {
 	
-	public ArrayList<String> stringList = new ArrayList<String>();
+	public static ArrayList<String> stringList = new ArrayList<String>();
 	
-	public void setStringList(Diagnosis diagnosis) {
+	public static  void setStringList(Diagnosis diagnosis) {
 		stringList.add("===================================");
 		stringList.add("			       처방전	  		       ");
 		stringList.add("\n");
@@ -44,7 +44,7 @@ public class PrescriptionPaper extends Paper {
 	}
 	
 	
-	public void printPrescription() {
+	public static void printPrescription() {
 //		System.out.println("===================================");
 //		System.out.println("			       처방전	  		       ");
 //		System.out.println();
@@ -80,18 +80,19 @@ public class PrescriptionPaper extends Paper {
 		
 	}
 	
-	public void filePrescription(Diagnosis diagnosis) {
-		String fileName = diagnosis.getExam().getAppointment().getPatient().getName();
-							
+	public static void filePrescription(Diagnosis diagnosis) {
+		String fileName = diagnosis.getExam().getAppointment().getPatient().getName() + "_처방전.txt";
+
 		try {
-			FileWriter writer = new FileWriter(fileName);
-			//String temp2 = null;
-			for(String str : stringList) {
-				writer.write(str);
-				//temp2 += str + "\n";
+			String temp2 = "";
+			for (String str : stringList) {
+				// writer.write(str);
+				temp2 += str + "\n";
 			}
-			//writer.write(temp2);						
-		} catch (IOException e) {			
+			FileWriter writer = new FileWriter(fileName);
+			writer.write(temp2);
+			writer.close();
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		

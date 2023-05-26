@@ -21,6 +21,16 @@ public class Appointment {
 		this.date = date;
 		this.time = time;
 	}
+	
+
+	public Appointment(Calendar date, String time, String symtom, Doctor doctor, Patient patient) {
+		super();
+		this.date = date;
+		this.time = time;
+		this.symtom = symtom;
+		this.doctor = doctor;
+		this.patient = patient;
+	}
 
 	public Calendar getDate() {
 		return date;
