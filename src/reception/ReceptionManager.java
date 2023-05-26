@@ -7,6 +7,7 @@ import java.util.GregorianCalendar;
 import java.util.LinkedList;
 
 import appointment.Appointment;
+import appointment.AppointmentManager;
 import calendar.Calendars;
 import calendar.Day;
 import paper.DischargeInstruction;
@@ -43,6 +44,7 @@ public class ReceptionManager {
 	
 	public void paymentFunction() {
 		//당일 예약자 리스트 받아오기
+
 		todayAppointments = Calendars.days.get(Calendar.getInstance().get(Calendar.DATE)).getAppointments();
 //		todayAppointments = Calendars.getAppointments();
 		LinkedList<Appointment> list = new LinkedList<Appointment>();

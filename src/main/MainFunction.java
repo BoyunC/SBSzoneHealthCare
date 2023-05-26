@@ -15,6 +15,7 @@ import people.Nurse;
 import people.Patient;
 
 import people.PatientFunction;
+import reception.ReceptionManager;
 import scanner.DataInput;
 
 public class MainFunction {
@@ -201,9 +202,12 @@ public class MainFunction {
 
 	// 원무 처리 메뉴 연결
 	public static void menuAdministration(String menu) {
+		ReceptionManager rm = new ReceptionManager();
+		
 		switch (menu) {
 		case "1":
-
+			System.out.println("========진료비수납========");
+			rm.paymentFunction();
 			break;
 		case "2":
 

@@ -15,6 +15,7 @@ public class ReceptionMain {
 		while (true) {
 			switch (menu) {
 			case "1":
+				System.out.println("========진료비수납========");
 				rm.paymentFunction();
 				break;
 			case "2":
