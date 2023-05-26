@@ -1,6 +1,7 @@
 package main;
 
 import appointment.Appointment;
+import appointment.AppointmentManager;
 import diagnosis.Diagnosis;
 import calendar.CalendarManager;
 import calendar.Calendars;
@@ -121,15 +122,15 @@ public class MainFunction {
 			break;
 		case "2":
 			System.out.println("========예약 수정========");
-			
+			AppointmentManager.updateAppointment();
 			break;
 		case "3":
 			System.out.println("========예약 취소========");
-
+			AppointmentManager.cancelAppointment();
 			break;
 		case "4":
 			System.out.println("======당일 예약 현황======");
-			
+			AppointmentManager.showTodayAppointList();
 			break;
 
 		default:
