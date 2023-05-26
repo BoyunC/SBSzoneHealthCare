@@ -16,8 +16,8 @@ public class Calendars {
 	public Calendars() {}
 	
 	public void setMonth(int month) {
-		
-		System.out.println(month); //입력받은 월 토대로 달력 세팅
+		System.out.println("--------------------------------------");
+		//System.out.println(month); //입력받은 월 토대로 달력 세팅
 		Calendar gc = Calendar.getInstance(); 
 		gc.set(Calendar.MONTH, month-1);
 		gc.set(Calendar.DATE, 1);
@@ -90,41 +90,42 @@ public class Calendars {
 			}
 			System.out.println();
 		}
+		System.out.println("--------------------------------------");
 	}
 	
 	static public Appointment[] getAppointments() {
-		System.out.print("예약 리스트 확인할 날짜 입력 : ");
+		System.out.print("[system] 예약 리스트 확인할 날짜 입력 : ");
 		int date = Integer.parseInt(DataInput.sc.nextLine()) - 1;
 		
 		return days.get(date).appointments;
 	}
 	
 	static public void setHoliday() {
-		System.out.print("일정 등록 일 입력 : ");
+		System.out.print("[system] 일정 등록 일 입력 : ");
 		int date = Integer.parseInt(DataInput.sc.nextLine()) - 1;
-		System.out.println("일정 등록 사유 입력 : ");
+		System.out.println("[system] 일정 등록 사유 입력 : ");
 		days.get(date).setReason(DataInput.sc.nextLine());
 		days.get(date).setHoliday(true);
 		
-		System.out.println("일정이 등록되었습니다.");
+		System.out.println("[system] 일정이 등록되었습니다.");
 		
 	}
 	static public void updateHoliday() {
-		System.out.println("일정 수정 일 입력 : ");
+		System.out.println("[system] 일정 수정 일 입력 : ");
 		int date = Integer.parseInt(DataInput.sc.nextLine()) - 1;
 		
 	}
 
 	static public void removeHoliday() {
-		System.out.println("일정 삭제 일 입력 : ");
+		System.out.println("[system] 일정 삭제 일 입력 : ");
 		int date = Integer.parseInt(DataInput.sc.nextLine()) - 1;
 		if(!days.get(date).isHoliday()) {
-			System.out.println("삭제할 일정이 없습니다.");
+			System.out.println("[system] 삭제할 일정이 없습니다.");
 			removeHoliday();
 		} else {
 			days.get(date).setHoliday(false);
 			days.get(date).setReason("");
-			System.out.println("일정이 삭제되었습니다.");
+			System.out.println("[system] 일정이 삭제되었습니다.");
 		}
 	}
 	
@@ -132,13 +133,13 @@ public class Calendars {
 		//환자 먼저 검색 -> 
 		int i = 1;
 		
-		System.out.print("환자 성명 : ");
+		System.out.print("[system] 환자 성명 : ");
 		String name = DataInput.sc.nextLine();
 		Patient tempP = PatientFunction.searchPatient(name);
 		
 		List<Appointment> list = tempP.getAppointmentList();
 		
-		System.out.println("예약 리스트");
+		System.out.println("[system] 예약 리스트");
 		for(Appointment a : list) {
 			System.out.print("[" + i++ + "]" 
 					+ a.getDate().get(Calendar.MONTH) + "월 "
@@ -148,16 +149,16 @@ public class Calendars {
 		}
 		
 		//수정할 예약 선택
-		System.out.print("변경할 예약 선택 : ");
+		System.out.print("[system] 변경할 예약 선택 : ");
 		int selectAppoint = Integer.parseInt(DataInput.sc.nextLine());
 		int oldDate = list.get(selectAppoint - 1).getDate().get(Calendar.DATE);
 		
 		getCalendar();
-		System.out.println("수정할 예약의 날짜 선택 : ");
+		System.out.println("[system] 수정할 예약의 날짜 선택 : ");
 		int date = Integer.parseInt(DataInput.sc.nextLine()) - 1;
 		
 		//시간 선택
-		System.out.println("변경할 시간 선택 : ");
+		System.out.println("[system] 변경할 시간 선택 : ");
 		days.get(date).showAppointments();
 		int time = Integer.parseInt(DataInput.sc.nextLine());
 		

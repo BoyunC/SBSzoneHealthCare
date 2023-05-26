@@ -26,7 +26,7 @@ public class MedicineFunction {
 			return null;
 		}
 
-		System.out.print("[system] 약 선택 : ");
+		System.out.print("[system] 약 선택 (선택 중단 Q): ");
 		int pickPatient = Integer.parseInt(DataInput.sc.nextLine()) - 1;
 
 		return searchMedicineList.get(pickPatient);

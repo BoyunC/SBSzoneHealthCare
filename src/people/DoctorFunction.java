@@ -45,9 +45,11 @@ public class DoctorFunction {
 		ArrayList<Doctor> searchDoctorList = new ArrayList<Doctor>();
 		int cnt = 1;
 
+		
+		
 		// 동명이인 추출
 		for (int i = 0; i < Doctor.doctorList.size(); i++) {
-			if (Doctor.doctorList.get(i).getName().equals(name)) {
+			if (Doctor.doctorList.get(i).getName().contains(name)) {
 				searchDoctorList.add(Doctor.doctorList.get(i));
 				System.out.println((cnt++) + ". " + Doctor.doctorList.get(i).getName() + "("
 						+ Doctor.doctorList.get(i).getLicenseNum() + ")");

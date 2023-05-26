@@ -67,11 +67,11 @@ public class PatientFunction {
 
 		// 환자 존재하지 않는 경우
 		if (searchPatientList.isEmpty()) {
-			System.out.println("해당하는 이름의 환자가 존재하지 않습니다.");
+			System.out.println("[system] 해당하는 이름의 환자가 존재하지 않습니다.");
 			return null;
 		}
 
-		System.out.print("환자 선택 : ");
+		System.out.print("[system] 환자 선택 : ");
 		int pickPatient = Integer.parseInt(DataInput.sc.nextLine()) - 1;
 
 		return searchPatientList.get(pickPatient);
